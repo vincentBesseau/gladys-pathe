@@ -120,6 +120,10 @@ Same chain-by-chain approach, one repo per cinema chain:
 - [`gladys-ugc`](https://github.com/vincentBesseau/gladys-ugc) — UGC
 - [`gladys-cgr`](https://github.com/vincentBesseau/gladys-cgr) — CGR
 
+For any other cinema — independent art-house theaters included — see
+[`gladys-allocine`](https://github.com/vincentBesseau/gladys-allocine),
+which covers every French cinema through AlloCiné's own site.
+
 ## Publishing checklist
 
 - [ ] `gladys_version` in `gladys-assistant-integration.json` is a
