@@ -29,8 +29,9 @@ const detailsBySlug = {
       lg: 'https://media.pathe.fr/poster-lg.jpg',
       md: 'https://media.pathe.fr/poster-md.jpg',
     },
+    // trailers is deliberately present in the fixture (like the real API
+    // response) to prove toMovie() ignores it — see nowPlaying.js for why.
     trailers: [
-      { externalId: 'https://media.pathe.fr/trailer-en.mp4', isMain: false, language: 'en' },
       { externalId: 'https://media.pathe.fr/trailer-fr.mp4', isMain: true, language: 'fr' },
     ],
   },
@@ -70,7 +71,7 @@ function fetchRouter() {
   };
 }
 
-test('parses films actually playing at the given cinema, with showtimes and trailer', async () => {
+test('parses films actually playing at the given cinema, with showtimes', async () => {
   globalThis.fetch = fetchRouter();
 
   const movies = await fetchNowPlaying('cinema-pathe-rennes', { now: realNow });
@@ -87,13 +88,20 @@ test('parses films actually playing at the given cinema, with showtimes and trai
     releaseDate: '2010-11-24',
     overview: 'La chasse aux Horcruxes commence.',
     posterUrl: 'https://media.pathe.fr/poster-lg.jpg',
-    trailerUrl: 'https://media.pathe.fr/trailer-fr.mp4',
     sourceUrl: 'https://www.pathe.fr/films/harry-potter-et-les-reliques-de-la-mort-partie-1',
     showtimes: [
       { time: '20:00', version: 'VF' },
       { time: '20:15', version: 'VOST' },
     ],
   });
+});
+
+test('never sets trailerUrl: media.pathe.fr enforces Referer-based hotlink protection', async () => {
+  globalThis.fetch = fetchRouter();
+
+  const movies = await fetchNowPlaying('cinema-pathe-rennes', { now: realNow });
+
+  assert.equal(movies[0].trailerUrl, undefined);
 });
 
 test('excludes a national-catalog film with zero sessions at this specific cinema', async () => {
@@ -118,14 +126,6 @@ test('never fetches details for a film with zero showtimes candidates', async ()
   const movies = await fetchNowPlaying('cinema-pathe-rennes', { now: realNow });
 
   assert.deepEqual(movies, []);
-});
-
-test('picks the main French trailer over other languages/non-main ones', async () => {
-  globalThis.fetch = fetchRouter();
-
-  const movies = await fetchNowPlaying('cinema-pathe-rennes', { now: realNow });
-
-  assert.equal(movies[0].trailerUrl, 'https://media.pathe.fr/trailer-fr.mp4');
 });
 
 test('turns the literal <br/> separators in synopsis into paragraph breaks, not raw HTML', async () => {

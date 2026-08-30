@@ -108,18 +108,6 @@ async function findPlayingFilms(cinemaId, dateKey) {
   return showtimesBySlug;
 }
 
-function pickTrailerUrl(trailers) {
-  if (!Array.isArray(trailers) || trailers.length === 0) {
-    return undefined;
-  }
-
-  const main = trailers.find((trailer) => trailer.isMain && trailer.language === 'fr');
-  const french = trailers.find((trailer) => trailer.language === 'fr');
-  const chosen = main || french || trailers[0];
-
-  return typeof chosen?.externalId === 'string' ? chosen.externalId : undefined;
-}
-
 // pathe.fr's synopsis field is plain text with the occasional literal
 // `<br/>` between paragraphs — not real markup requiring a parser, just
 // this one pattern to turn into a paragraph break, plus a defensive strip
@@ -154,7 +142,13 @@ function toMovie(details, showtimes) {
     releaseDate,
     overview: cleanSynopsis(details.synopsis),
     posterUrl: details.posterPath?.lg || details.posterPath?.md || undefined,
-    trailerUrl: pickTrailerUrl(details.trailers),
+    // No trailerUrl: media.pathe.fr's video CDN enforces Referer-based
+    // hotlink protection (verified live — a direct request with no Referer
+    // gets a 403 "Access Denied" from Akamai). A visitor's browser opening
+    // this integration's trailer link directly never sends a pathe.fr
+    // Referer, so the link would 403 for every single user, every time.
+    // Better to not offer the button at all than to offer one that always
+    // fails.
     sourceUrl: `https://www.pathe.fr/films/${details.slug}`,
     showtimes,
   };

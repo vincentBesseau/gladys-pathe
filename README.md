@@ -43,15 +43,24 @@ Chrome/...`) is ever asserted. Omitting an optional HTTP header is
 
 - Configure one Pathé cinema (its slug, e.g. `cinema-pathe-rennes`).
 - `movies.getUpcoming` returns the films playing there today, each with its
-  showtimes (`movie.showtimes`, Gladys core B.19) and trailer. Unlike
-  `gladys-ugc`/`gladys-cgr`, pathe.fr has no single "now playing at cinema
-  X" endpoint — the national catalog call (`/api/shows`) isn't actually
-  scoped by cinema (verified live: identical results with or without a
-  `cinemaSlug`-like parameter), so this integration cross-references it
-  against the cinema-specific showtimes endpoint, one call per candidate
-  film with at least one showtime somewhere nationally, to find out which
-  ones actually play at the configured cinema. All calls run with bounded
-  concurrency; verified live in well under 2s end to end for a full cinema.
+  showtimes (`movie.showtimes`, Gladys core B.19). Unlike `gladys-ugc`/
+  `gladys-cgr`, pathe.fr has no single "now playing at cinema X" endpoint —
+  the national catalog call (`/api/shows`) isn't actually scoped by cinema
+  (verified live: identical results with or without a `cinemaSlug`-like
+  parameter), so this integration cross-references it against the
+  cinema-specific showtimes endpoint, one call per candidate film with at
+  least one showtime somewhere nationally, to find out which ones actually
+  play at the configured cinema. All calls run with bounded concurrency;
+  verified live in well under 2s end to end for a full cinema.
+- **No `trailerUrl`, deliberately**: `pathe.fr/api/show/<slug>` does return
+  trailer URLs, but `media.pathe.fr` (the video CDN they point to) enforces
+  Referer-based hotlink protection — verified live, a request with no
+  Referer (which is exactly what a visitor's browser sends when opening
+  this integration's link directly) gets a 403 "Access Denied" from Akamai,
+  every time, for every visitor. Unlike UGC/CGR's `fr.vid.web.acsta.net`
+  (verified to have no such restriction), there is no way to make this link
+  work from outside pathe.fr's own pages, so it is omitted rather than
+  offered broken.
 - A **Find my cinema** action searches a hand-maintained static list of
   Pathé (and Pathé-network, e.g. some Gaumont) cinemas, from `pathe.fr`'s
   own public `/api/cinemas` endpoint.

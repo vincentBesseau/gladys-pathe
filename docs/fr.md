@@ -32,8 +32,11 @@ README du dépôt pour le raisonnement complet.
 
 Les films à l'affiche aujourd'hui dans ce cinéma apparaissent alors dans le
 widget "Prochaines sorties" du tableau de bord. En cliquant sur une affiche,
-la fiche du film affiche sa bande-annonce et un tableau des horaires de
-séances du jour dans ce cinéma (heure et version, VF/VOST).
+la fiche du film affiche un tableau des horaires de séances du jour dans ce
+cinéma (heure et version, VF/VOST). Contrairement aux intégrations UGC et
+CGR, il n'y a pas de bande-annonce ici : le CDN vidéo de pathe.fr
+(`media.pathe.fr`) refuse toute lecture directe sans provenir d'une page
+pathe.fr elle-même, donc le lien ne fonctionnerait jamais pour vous.
 
 ## Limites connues (v1)
 

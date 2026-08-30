@@ -29,8 +29,11 @@ the repository's README for the full reasoning.
 
 The films playing today at that cinema then appear in the dashboard's
 "Upcoming Releases" widget. Clicking a poster opens the film's detail card,
-which shows its trailer and a table of today's showtimes at that cinema
-(time and version, VF/VOST).
+which shows a table of today's showtimes at that cinema (time and version,
+VF/VOST). Unlike the UGC and CGR integrations, there is no trailer here:
+pathe.fr's own video CDN (`media.pathe.fr`) refuses to play anything
+requested outside of a pathe.fr page itself, so the link would never work
+for you anyway.
 
 ## Known limitations (v1)
 
