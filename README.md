@@ -69,7 +69,10 @@ Chrome/...`) is ever asserted. Omitting an optional HTTP header is
   offered broken.
 - A **Find my cinema** action searches a hand-maintained static list of
   Pathé (and Pathé-network, e.g. some Gaumont) cinemas, from `pathe.fr`'s
-  own public `/api/cinemas` endpoint.
+  own public `/api/cinemas` endpoint. Left empty, it returns the 5 cinemas
+  nearest the Gladys house (`location: true` in the manifest,
+  `gladys.getHouses()`) instead of dumping the full ~80-cinema list — falls
+  back to the full list when no house has a location set.
 
 ## Development
 
@@ -102,8 +105,13 @@ released.
 ### Refreshing the cinema list
 
 `src/pathe/cinemas.json` is a hand-maintained snapshot of
-`GET https://www.pathe.fr/api/cinemas?language=fr` — re-fetch it and rebuild
-the `{id, name, city}` list (`slug`, `name`, `theaters[0].addressCity`).
+`GET https://www.pathe.fr/api/cinemas?language=fr` (no User-Agent header,
+see above) — re-fetch it and rebuild the list from each entry's `slug`,
+`name`, and `theaters[0]` (`addressLine1` → `address`, `addressZip` →
+`postalCode`, `addressCity` → `city`, `gpsPosition.x`/`.y` → `latitude`/
+`longitude`, used by `nearestCinemas()` in `src/pathe/cinemas.js`) —
+first-party and precise, no third-party geocoding needed here (unlike
+`gladys-ugc`, whose cinema list has no such data built in).
 
 ## Related integrations
 

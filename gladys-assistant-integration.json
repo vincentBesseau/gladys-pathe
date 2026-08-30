@@ -12,6 +12,7 @@
   "categories": ["multimedia"],
   "cover_image": "https://raw.githubusercontent.com/vincentBesseau/gladys-pathe/main/cover.png",
   "transports": ["cloud"],
+  "location": true,
   "config_schema": [
     {
       "key": "intro",
@@ -47,8 +48,8 @@
         "fr": "Trouver mon cinéma"
       },
       "description": {
-        "en": "Leave the field empty to list every Pathé cinema, or type a city name to filter.",
-        "fr": "Laissez le champ vide pour lister tous les cinémas Pathé, ou saisissez une ville pour filtrer."
+        "en": "Leave the field empty to list the Pathé cinemas nearest your Gladys house, or type a city name to search all of them.",
+        "fr": "Laissez le champ vide pour lister les cinémas Pathé les plus proches de votre maison Gladys, ou saisissez une ville pour chercher parmi tous les cinémas."
       },
       "timeout_seconds": 15,
       "fields": [

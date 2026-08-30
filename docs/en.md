@@ -22,10 +22,15 @@ the repository's README for the full reasoning.
 ## Configuration
 
 1. Open the integration's **Configuration** tab.
-2. Run the **Find my cinema** action: leave the field empty to list every
-   Pathé cinema, or type a city to filter. The result is shown under the
-   button as `Cinema name — City (ID: cinema-pathe-rennes)`.
+2. Run the **Find my cinema** action: leave the field empty to list the 5
+   Pathé cinemas nearest your Gladys house (if it has a location set), or
+   type a city to search across all of them. The result is shown under the
+   button as `Cinema name — City (12.3 km) (ID: cinema-pathe-rennes)` (the
+   distance only appears for a proximity search).
 3. Copy the ID of your cinema into the **Cinema ID** field, then save.
+
+If no Gladys house has a location set, leaving the field empty lists every
+Pathé cinema instead (fallback behavior).
 
 The films playing today at that cinema then appear in the dashboard's
 "Upcoming Releases" widget. Clicking a poster opens the film's detail card,
