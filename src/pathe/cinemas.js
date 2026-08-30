@@ -7,6 +7,7 @@
 // -----------------------------------------------------------------------------
 
 import cinemas from './cinemas.json' with { type: 'json' };
+import { distanceKm } from './geo.js';
 
 function normalize(value = '') {
   return String(value)
@@ -17,7 +18,7 @@ function normalize(value = '') {
 
 /**
  * @param {string} [query] - city or name fragment (case/accent-insensitive).
- * @returns {Array<{id: string, name: string, city: string}>}
+ * @returns {Array<{id: string, name: string, city: string, latitude: number, longitude: number}>}
  */
 export function searchCinemas(query = '') {
   const needle = normalize(query.trim());
@@ -27,4 +28,21 @@ export function searchCinemas(query = '') {
   }
 
   return cinemas.filter((cinema) => normalize(`${cinema.name} ${cinema.city}`).includes(needle));
+}
+
+/**
+ * The `limit` cinemas closest to `origin`, nearest first, each with a
+ * `distanceKm` field attached. Browsing the full ~80-cinema list unfiltered
+ * isn't useful when only one or two are ever relevant to a given house, so
+ * this is what "Find my cinema" falls back to when its query is left empty
+ * and the Gladys house is located (see index.js).
+ * @param {{latitude: number, longitude: number}} origin
+ * @param {number} [limit]
+ * @returns {Array<{id: string, name: string, city: string, latitude: number, longitude: number, distanceKm: number}>}
+ */
+export function nearestCinemas(origin, limit = 5) {
+  return cinemas
+    .map((cinema) => ({ ...cinema, distanceKm: Math.round(distanceKm(origin, cinema) * 10) / 10 }))
+    .sort((a, b) => a.distanceKm - b.distanceKm)
+    .slice(0, limit);
 }
