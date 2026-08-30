@@ -128,7 +128,7 @@ Same chain-by-chain approach, one repo per cinema chain:
       [GladysAssistant/Gladys#3061](https://github.com/GladysAssistant/Gladys/pull/3061))
       once it is released.
 - [ ] Swap the SDK dependency to a published version (see above).
-- [ ] Add a `cover.png` (referenced by `cover_image` in the manifest).
+- [x] Add a `cover.png` (referenced by `cover_image` in the manifest) — 800x534, under 150 KB.
 - [ ] Run **Release** (GitHub Actions) once ready to cut `v0.1.0` and publish
       the image to `ghcr.io/vincentbesseau/gladys-pathe`.
 
