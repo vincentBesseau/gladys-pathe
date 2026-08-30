@@ -1,0 +1,392 @@
+[
+  {
+    "id": "cinema-cine-cap-vert",
+    "name": "Ciné Cap Vert",
+    "city": "Quetigny"
+  },
+  {
+    "id": "cinema-cine-capitole",
+    "name": "Ciné Capitole",
+    "city": "Clermont-Ferrand"
+  },
+  {
+    "id": "cinema-gaumont-disney-village",
+    "name": "Gaumont Disney Village",
+    "city": "Marne-La-Vallée"
+  },
+  {
+    "id": "cinema-la-geode",
+    "name": "La Géode",
+    "city": "Paris"
+  },
+  {
+    "id": "cinema-le-cezanne",
+    "name": "Le Cézanne",
+    "city": "Aix-en-Provence"
+  },
+  {
+    "id": "cinema-le-mazarin",
+    "name": "Le Mazarin",
+    "city": "Aix-en-Provence"
+  },
+  {
+    "id": "cinema-le-renoir",
+    "name": "Le Renoir",
+    "city": "Aix-en-Provence"
+  },
+  {
+    "id": "cinema-les-3-palmes",
+    "name": "Les 3 Palmes",
+    "city": "Marseille"
+  },
+  {
+    "id": "cinema-les-7-batignolles",
+    "name": "Les 7 Batignolles",
+    "city": "Paris"
+  },
+  {
+    "id": "cinema-multiplexe-liberte",
+    "name": "Multiplexe Liberté",
+    "city": "Brest"
+  },
+  {
+    "id": "cinema-pathe-alesia",
+    "name": "Pathé Alésia",
+    "city": "Paris"
+  },
+  {
+    "id": "cinema-pathe-amiens",
+    "name": "Pathé Amiens",
+    "city": "Amiens"
+  },
+  {
+    "id": "cinema-pathe-angers",
+    "name": "Pathé Angers",
+    "city": "Angers"
+  },
+  {
+    "id": "cinema-pathe-annecy",
+    "name": "Pathé Annecy",
+    "city": "Annecy"
+  },
+  {
+    "id": "cinema-pathe-aquaboulevard",
+    "name": "Pathé Aquaboulevard",
+    "city": "Paris"
+  },
+  {
+    "id": "cinema-pathe-archamps",
+    "name": "Pathé Archamps",
+    "city": "Archamps"
+  },
+  {
+    "id": "cinema-pathe-atlantis",
+    "name": "Pathé Atlantis",
+    "city": "Nantes-Saint-Herblain"
+  },
+  {
+    "id": "cinema-pathe-aubiere",
+    "name": "Pathé Aubière",
+    "city": "Aubière"
+  },
+  {
+    "id": "cinema-pathe-aeroville",
+    "name": "Pathé Aéroville",
+    "city": "Roissy-en-France"
+  },
+  {
+    "id": "cinema-pathe-bnp-paribas",
+    "name": "Pathé BNP Paribas",
+    "city": "Paris"
+  },
+  {
+    "id": "cinema-pathe-beaugrenelle",
+    "name": "Pathé Beaugrenelle",
+    "city": "Paris"
+  },
+  {
+    "id": "cinema-pathe-belle-epine",
+    "name": "Pathé Belle Épine",
+    "city": "Thiais"
+  },
+  {
+    "id": "cinema-pathe-bellecour",
+    "name": "Pathé Bellecour",
+    "city": "Lyon"
+  },
+  {
+    "id": "cinema-pathe-boulogne",
+    "name": "Pathé Boulogne",
+    "city": "Boulogne-Billancourt"
+  },
+  {
+    "id": "cinema-pathe-brumath",
+    "name": "Pathé Brumath",
+    "city": "Brumath"
+  },
+  {
+    "id": "cinema-pathe-cap-sud",
+    "name": "Pathé Cap Sud",
+    "city": "Avignon"
+  },
+  {
+    "id": "cinema-pathe-capucins",
+    "name": "Pathé Capucins",
+    "city": "Brest"
+  },
+  {
+    "id": "cinema-pathe-carre-senart",
+    "name": "Pathé Carré Sénart",
+    "city": "Lieusaint"
+  },
+  {
+    "id": "cinema-pathe-carre-de-soie",
+    "name": "Pathé Carré de Soie",
+    "city": "Vaulx-en-Velin"
+  },
+  {
+    "id": "cinema-pathe-chambery",
+    "name": "Pathé Chambéry",
+    "city": "Chambéry"
+  },
+  {
+    "id": "cinema-pathe-cite-europe",
+    "name": "Pathé Cité Europe",
+    "city": "Coquelles"
+  },
+  {
+    "id": "cinema-pathe-comedie",
+    "name": "Pathé Comédie",
+    "city": "Montpellier"
+  },
+  {
+    "id": "cinema-pathe-conflans",
+    "name": "Pathé Conflans",
+    "city": "Conflans-Sainte-Honorine"
+  },
+  {
+    "id": "cinema-pathe-convention",
+    "name": "Pathé Convention",
+    "city": "Paris"
+  },
+  {
+    "id": "cinema-pathe-dammarie",
+    "name": "Pathé Dammarie",
+    "city": "Dammarie-les-Lys"
+  },
+  {
+    "id": "cinema-pathe-dijon",
+    "name": "Pathé Dijon",
+    "city": "Dijon"
+  },
+  {
+    "id": "cinema-pathe-docks-76",
+    "name": "Pathé Docks 76",
+    "city": "Rouen"
+  },
+  {
+    "id": "cinema-pathe-docks-vauban",
+    "name": "Pathé Docks Vauban",
+    "city": "Le Havre"
+  },
+  {
+    "id": "cinema-pathe-gare-du-sud",
+    "name": "Pathé Gare du Sud",
+    "city": "Nice"
+  },
+  {
+    "id": "cinema-pathe-grand-quevilly",
+    "name": "Pathé Grand-Quevilly",
+    "city": "Grand-Quevilly"
+  },
+  {
+    "id": "cinema-pathe-grenoble",
+    "name": "Pathé Grenoble",
+    "city": "Grenoble"
+  },
+  {
+    "id": "cinema-pathe-la-joliette",
+    "name": "Pathé La Joliette",
+    "city": "Marseille"
+  },
+  {
+    "id": "cinema-pathe-la-valette",
+    "name": "Pathé La Valette",
+    "city": "La Valette-du-Var"
+  },
+  {
+    "id": "cinema-pathe-la-villette",
+    "name": "Pathé La Villette",
+    "city": "Paris"
+  },
+  {
+    "id": "cinema-pathe-labege",
+    "name": "Pathé Labège",
+    "city": "Labège"
+  },
+  {
+    "id": "cinema-pathe-le-mans",
+    "name": "Pathé Le Mans",
+    "city": "Le Mans"
+  },
+  {
+    "id": "cinema-pathe-les-fauvettes",
+    "name": "Pathé Les Fauvettes",
+    "city": "Paris"
+  },
+  {
+    "id": "cinema-pathe-les-rives-de-l-orne",
+    "name": "Pathé Les Rives de l'Orne",
+    "city": "Caen"
+  },
+  {
+    "id": "cinema-pathe-levallois",
+    "name": "Pathé Levallois",
+    "city": "Levallois"
+  },
+  {
+    "id": "cinema-pathe-lingostiere",
+    "name": "Pathé Lingostière",
+    "city": "Nice"
+  },
+  {
+    "id": "cinema-pathe-lievin",
+    "name": "Pathé Liévin",
+    "city": "Liévin"
+  },
+  {
+    "id": "cinema-pathe-madeleine",
+    "name": "Pathé Madeleine",
+    "city": "Marseille"
+  },
+  {
+    "id": "cinema-pathe-massy",
+    "name": "Pathé Massy",
+    "city": "Massy"
+  },
+  {
+    "id": "cinema-pathe-massena",
+    "name": "Pathé Masséna",
+    "city": "Nice"
+  },
+  {
+    "id": "cinema-pathe-montataire",
+    "name": "Pathé Montataire",
+    "city": "Montataire"
+  },
+  {
+    "id": "cinema-pathe-montparnos",
+    "name": "Pathé Montparnos",
+    "city": "Paris"
+  },
+  {
+    "id": "cinema-pathe-macon",
+    "name": "Pathé Mâcon",
+    "city": "Mâcon"
+  },
+  {
+    "id": "cinema-pathe-nantes",
+    "name": "Pathé Nantes",
+    "city": "Nantes"
+  },
+  {
+    "id": "cinema-pathe-odysseum",
+    "name": "Pathé Odysseum",
+    "city": "Montpellier"
+  },
+  {
+    "id": "cinema-pathe-orleans",
+    "name": "Pathé Orléans",
+    "city": "Orléans"
+  },
+  {
+    "id": "cinema-pathe-palace",
+    "name": "Pathé Palace",
+    "city": "Paris"
+  },
+  {
+    "id": "cinema-pathe-parnasse",
+    "name": "Pathé Parnasse",
+    "city": "Paris"
+  },
+  {
+    "id": "cinema-pathe-plan-de-campagne",
+    "name": "Pathé Plan de Campagne",
+    "city": "Marseille"
+  },
+  {
+    "id": "cinema-pathe-quai-d-ivry",
+    "name": "Pathé Quai d'Ivry",
+    "city": "Ivry-sur-Seine"
+  },
+  {
+    "id": "cinema-pathe-rennes",
+    "name": "Pathé Rennes",
+    "city": "Rennes"
+  },
+  {
+    "id": "cinema-pathe-saint-denis",
+    "name": "Pathé Saint-Denis",
+    "city": "Saint-Denis"
+  },
+  {
+    "id": "cinema-pathe-saran",
+    "name": "Pathé Saran",
+    "city": "Saran"
+  },
+  {
+    "id": "cinema-pathe-thillois",
+    "name": "Pathé Thillois",
+    "city": "Thillois"
+  },
+  {
+    "id": "cinema-pathe-toulon",
+    "name": "Pathé Toulon",
+    "city": "Toulon"
+  },
+  {
+    "id": "cinema-pathe-tours",
+    "name": "Pathé Tours",
+    "city": "Tours"
+  },
+  {
+    "id": "cinema-pathe-vaise",
+    "name": "Pathé Vaise",
+    "city": "Lyon"
+  },
+  {
+    "id": "cinema-pathe-valence",
+    "name": "Pathé Valence",
+    "city": "Valence"
+  },
+  {
+    "id": "cinema-pathe-valenciennes",
+    "name": "Pathé Valenciennes",
+    "city": "Valenciennes"
+  },
+  {
+    "id": "cinema-pathe-wepler",
+    "name": "Pathé Wepler",
+    "city": "Paris"
+  },
+  {
+    "id": "cinema-pathe-wilson",
+    "name": "Pathé Wilson",
+    "city": "Toulouse"
+  },
+  {
+    "id": "cinema-pathe-echirolles",
+    "name": "Pathé Échirolles",
+    "city": "Échirolles"
+  },
+  {
+    "id": "cinema-pathe-evreux",
+    "name": "Pathé Évreux",
+    "city": "Evreux"
+  },
+  {
+    "id": "cinema-pathe-ile-seguin",
+    "name": "Pathé Île Seguin",
+    "city": "Boulogne-Billancourt"
+  }
+]

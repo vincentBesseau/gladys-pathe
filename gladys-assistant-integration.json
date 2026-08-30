@@ -1,0 +1,67 @@
+{
+  "manifest_version": 1,
+  "type": "movies",
+  "name": "Pathé",
+  "description": {
+    "en": "Movies currently playing at your Pathé cinema.",
+    "fr": "Films actuellement à l'affiche dans votre cinéma Pathé."
+  },
+  "version": "0.1.0",
+  "docker_image": "ghcr.io/vincentbesseau/gladys-pathe:0.1.0",
+  "gladys_version": ">=4.90.0",
+  "categories": ["multimedia"],
+  "cover_image": "https://raw.githubusercontent.com/vincentBesseau/gladys-pathe/main/cover.png",
+  "transports": ["cloud"],
+  "config_schema": [
+    {
+      "key": "intro",
+      "type": "section",
+      "label": {
+        "en": "Pathé cinema",
+        "fr": "Cinéma Pathé"
+      },
+      "description": {
+        "en": "This integration reads the same public JSON data pathe.fr's own site uses to render its pages. It is not an official Pathé product, is not affiliated with Pathé, and can break without notice if the site changes. Run the action below to find your cinema's ID, then paste it below.",
+        "fr": "Cette intégration lit les mêmes données JSON publiques que le site pathe.fr utilise déjà pour afficher ses pages. Ce n'est pas un produit officiel Pathé, elle n'est pas affiliée à Pathé, et peut cesser de fonctionner sans préavis si le site change. Lancez l'action ci-dessous pour trouver l'identifiant de votre cinéma, puis collez-le ci-dessous."
+      }
+    },
+    {
+      "key": "cinema_id",
+      "type": "string",
+      "label": {
+        "en": "Cinema ID",
+        "fr": "Identifiant du cinéma"
+      },
+      "description": {
+        "en": "The ID shown by the \"Find my cinema\" action, e.g. cinema-pathe-rennes.",
+        "fr": "L'identifiant affiché par l'action \"Trouver mon cinéma\", par ex. cinema-pathe-rennes."
+      },
+      "required": true
+    }
+  ],
+  "actions": [
+    {
+      "key": "search_cinemas",
+      "label": {
+        "en": "Find my cinema",
+        "fr": "Trouver mon cinéma"
+      },
+      "description": {
+        "en": "Leave the field empty to list every Pathé cinema, or type a city name to filter.",
+        "fr": "Laissez le champ vide pour lister tous les cinémas Pathé, ou saisissez une ville pour filtrer."
+      },
+      "timeout_seconds": 15,
+      "fields": [
+        {
+          "key": "query",
+          "type": "string",
+          "label": {
+            "en": "City",
+            "fr": "Ville"
+          },
+          "required": false
+        }
+      ]
+    }
+  ]
+}
