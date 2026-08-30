@@ -1,5 +1,11 @@
 # gladys-pathe
 
+[![Latest version](https://img.shields.io/github/v/tag/vincentBesseau/gladys-pathe?label=version)](https://github.com/vincentBesseau/gladys-pathe/tags)
+[![CI](https://github.com/vincentBesseau/gladys-pathe/actions/workflows/ci.yml/badge.svg)](https://github.com/vincentBesseau/gladys-pathe/actions/workflows/ci.yml)
+[![Docker pulls](https://ghcr-badge.elias.eu.org/shield/vincentBesseau/gladys-pathe/gladys-pathe)](https://github.com/vincentBesseau/gladys-pathe/pkgs/container/gladys-pathe)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Gladys](https://img.shields.io/badge/gladys-%3E%3D4.90.0-6f42c1)](https://gladysassistant.com)
+
 Pathé cinema integration for [Gladys Assistant](https://gladysassistant.com):
 movies currently playing at your Pathé cinema, shown in the "Upcoming
 Releases" widget (Gladys core contract B.19, `movies` external-integration
@@ -98,6 +104,13 @@ released.
 `src/pathe/cinemas.json` is a hand-maintained snapshot of
 `GET https://www.pathe.fr/api/cinemas?language=fr` — re-fetch it and rebuild
 the `{id, name, city}` list (`slug`, `name`, `theaters[0].addressCity`).
+
+## Related integrations
+
+Same chain-by-chain approach, one repo per cinema chain:
+
+- [`gladys-ugc`](https://github.com/vincentBesseau/gladys-ugc) — UGC
+- [`gladys-cgr`](https://github.com/vincentBesseau/gladys-cgr) — CGR
 
 ## Publishing checklist
 
