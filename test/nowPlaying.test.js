@@ -88,7 +88,7 @@ test('parses films actually playing at the given cinema, with showtimes', async 
     releaseDate: '2010-11-24',
     overview: 'La chasse aux Horcruxes commence.',
     posterUrl: 'https://media.pathe.fr/poster-lg.jpg',
-    sourceUrl: 'https://www.pathe.fr/films/harry-potter-et-les-reliques-de-la-mort-partie-1',
+    sourceUrl: 'https://www.pathe.fr/cinemas/cinema-pathe-rennes',
     showtimes: [
       { time: '20:00', version: 'VF' },
       { time: '20:15', version: 'VOST' },
@@ -102,6 +102,14 @@ test('never sets trailerUrl: media.pathe.fr enforces Referer-based hotlink prote
   const movies = await fetchNowPlaying('cinema-pathe-rennes', { now: realNow });
 
   assert.equal(movies[0].trailerUrl, undefined);
+});
+
+test('pins sourceUrl to the cinema the film was fetched for, not a generic film page', async () => {
+  globalThis.fetch = fetchRouter();
+
+  const movies = await fetchNowPlaying('cinema-pathe-nantes-atlantis', { now: realNow });
+
+  assert.equal(movies[0].sourceUrl, 'https://www.pathe.fr/cinemas/cinema-pathe-nantes-atlantis');
 });
 
 test('excludes a national-catalog film with zero sessions at this specific cinema', async () => {

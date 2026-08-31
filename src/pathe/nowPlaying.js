@@ -125,7 +125,7 @@ function cleanSynopsis(synopsis) {
   return cleaned.length > 0 ? cleaned : undefined;
 }
 
-function toMovie(details, showtimes) {
+function toMovie(details, showtimes, cinemaId) {
   const releaseDate = details.releaseAt?.FR_FR;
 
   if (!details.slug || !details.title || !releaseDate) {
@@ -149,7 +149,12 @@ function toMovie(details, showtimes) {
     // Referer, so the link would 403 for every single user, every time.
     // Better to not offer the button at all than to offer one that always
     // fails.
-    sourceUrl: `https://www.pathe.fr/films/${details.slug}`,
+    // pathe.fr has no combined film+cinema page: the configured cinema_id is
+    // already the exact slug pathe.fr's own /cinemas/<slug> page uses
+    // (verified live), so this lands the user on their cinema's real,
+    // bookable showtimes instead of a cinema-less film info page — the film
+    // itself is right there in that cinema's today program.
+    sourceUrl: `https://www.pathe.fr/cinemas/${cinemaId}`,
     showtimes,
   };
 }
@@ -189,7 +194,7 @@ export async function fetchNowPlaying(cinemaId, { now = new Date() } = {}) {
     .map((slug) => {
       const details = detailsBySlug.get(slug);
 
-      return details ? toMovie(details, showtimesBySlug.get(slug)) : null;
+      return details ? toMovie(details, showtimesBySlug.get(slug), cinemaId) : null;
     })
     .filter(Boolean);
 
