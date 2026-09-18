@@ -1,7 +1,8 @@
 # Pathé
 
-Films actuellement à l'affiche dans votre cinéma Pathé, affichés dans le
-widget "Prochaines sorties" de Gladys.
+Films actuellement à l'affiche dans votre cinéma Pathé, sous forme de widget
+de tableau de bord, avec un déclencheur de scène pour l'ajout d'un nouveau
+film.
 
 ## Important : intégration non officielle
 
@@ -35,13 +36,22 @@ README du dépôt pour le raisonnement complet.
 Si aucune maison Gladys n'a de position renseignée, laisser le champ vide
 liste tous les cinémas Pathé (comportement de repli).
 
-Les films à l'affiche aujourd'hui dans ce cinéma apparaissent alors dans le
-widget "Prochaines sorties" du tableau de bord. En cliquant sur une affiche,
-la fiche du film affiche un tableau des horaires de séances du jour dans ce
-cinéma (heure et version, VF/VOST). Contrairement aux intégrations UGC et
-CGR, il n'y a pas de bande-annonce ici : le CDN vidéo de pathe.fr
-(`media.pathe.fr`) refuse toute lecture directe sans provenir d'une page
-pathe.fr elle-même, donc le lien ne fonctionnerait jamais pour vous.
+Ajoutez le widget **À l'affiche** de l'intégration à un tableau de bord
+Gladys pour voir les films à l'affiche aujourd'hui dans ce cinéma : affiche,
+lien de réservation et horaires de séances du jour (heure et version,
+VF/VOST). Contrairement aux intégrations UGC et CGR, il n'y a pas de lien de
+bande-annonce ici : le CDN vidéo de pathe.fr (`media.pathe.fr`) refuse toute
+lecture directe sans provenir d'une page pathe.fr elle-même, donc le lien ne
+fonctionnerait jamais pour vous.
+
+## Déclencheur de scène
+
+L'intégration déclare aussi un déclencheur de scène **Nouveau film ajouté** :
+créez une scène avec ce déclencheur pour réagir quand un film jamais vu
+auparavant apparaît dans le programme (envoyer un message, par exemple). Le
+déclencheur expose le titre du film, sa date de sortie, les horaires du jour
+et le lien de réservation comme variables de scène. L'intégration vérifie
+l'apparition de nouveaux films deux fois par jour.
 
 ## Limites connues (v1)
 

@@ -1,7 +1,7 @@
 # Pathé
 
-Movies currently playing at your Pathé cinema, shown in Gladys's "Upcoming
-Releases" widget.
+Movies currently playing at your Pathé cinema, as a dashboard widget, with a
+scene trigger for when a new film joins the program.
 
 ## Important: unofficial integration
 
@@ -32,13 +32,20 @@ the repository's README for the full reasoning.
 If no Gladys house has a location set, leaving the field empty lists every
 Pathé cinema instead (fallback behavior).
 
-The films playing today at that cinema then appear in the dashboard's
-"Upcoming Releases" widget. Clicking a poster opens the film's detail card,
-which shows a table of today's showtimes at that cinema (time and version,
-VF/VOST). Unlike the UGC and CGR integrations, there is no trailer here:
-pathe.fr's own video CDN (`media.pathe.fr`) refuses to play anything
-requested outside of a pathe.fr page itself, so the link would never work
-for you anyway.
+Add the integration's **now_playing** widget to a Gladys dashboard to see the
+films playing today at that cinema: poster, a booking link and today's
+showtimes (time and version, VF/VOST). Unlike the UGC and CGR integrations,
+there is no trailer link here: pathe.fr's own video CDN (`media.pathe.fr`)
+refuses to play anything requested outside of a pathe.fr page itself, so the
+link would never work for you anyway.
+
+## Scene trigger
+
+The integration also declares a **new_film** scene trigger: create a scene
+with this trigger to react when a film not seen before appears in the
+program (send a message, for example). The trigger exposes the film's
+title, release date, today's showtimes and booking link as scene variables.
+The integration checks for new films twice a day.
 
 ## Known limitations (v1)
 
