@@ -1,6 +1,6 @@
 {
   "manifest_version": 1,
-  "type": "movies",
+  "type": "provider",
   "name": "Pathé",
   "description": {
     "en": "Movies currently playing at your Pathé cinema.",
@@ -61,6 +61,52 @@
             "fr": "Ville"
           },
           "required": false
+        }
+      ]
+    }
+  ],
+  "widgets": [
+    {
+      "key": "now_playing",
+      "label": {
+        "en": "Now playing",
+        "fr": "À l'affiche"
+      },
+      "description": {
+        "en": "Movies playing today at your configured Pathé cinema, with showtimes.",
+        "fr": "Les films à l'affiche aujourd'hui dans votre cinéma Pathé configuré, avec les horaires."
+      },
+      "icon": "film",
+      "action_timeout_seconds": 15
+    }
+  ],
+  "scene_triggers": [
+    {
+      "key": "new_film",
+      "label": {
+        "en": "New film added",
+        "fr": "Nouveau film ajouté"
+      },
+      "description": {
+        "en": "A film not seen before appears in the \"now playing\" program of your cinema.",
+        "fr": "Un film jamais vu auparavant apparaît dans le programme \"à l'affiche\" de votre cinéma."
+      },
+      "variables": [
+        { "key": "title", "type": "string", "label": { "en": "Title", "fr": "Titre" } },
+        {
+          "key": "release_date",
+          "type": "string",
+          "label": { "en": "Release date", "fr": "Date de sortie" }
+        },
+        {
+          "key": "showtimes",
+          "type": "string",
+          "label": { "en": "Today's showtimes", "fr": "Séances du jour" }
+        },
+        {
+          "key": "source_url",
+          "type": "string",
+          "label": { "en": "Booking link", "fr": "Lien de réservation" }
         }
       ]
     }

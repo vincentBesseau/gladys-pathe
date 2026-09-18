@@ -1,9 +1,12 @@
 // -----------------------------------------------------------------------------
 // Entry point of the Gladys external integration.
 //
-// This is a "movies" type integration (Gladys contract B.19): it answers
-// `movies.getUpcoming` with the films currently playing at ONE configured
-// Pathé cinema, and exposes a "Find my cinema" action to look up its ID.
+// This is a "provider" type integration (Gladys capabilities/provider-type.md):
+// it has no device surface, and declares two capabilities instead — a
+// dashboard widget (capabilities/dashboard-widgets.md, "now_playing") and a
+// scene trigger (capabilities/scene-triggers-and-actions.md, "new_film") —
+// for the films currently playing at ONE configured Pathé cinema. It also
+// exposes a "Find my cinema" action to look up the cinema's ID.
 //
 // Environment variables provided by the Gladys supervisor to the container:
 //   - GLADYS_HOST_API_URL         (host API URL)
@@ -16,6 +19,8 @@ import { GladysIntegration, logger } from '@gladysassistant/integration-sdk';
 import { normalizeConfig, validateConfig } from './src/config.js';
 import { searchCinemas, nearestCinemas } from './src/pathe/cinemas.js';
 import { fetchNowPlaying } from './src/pathe/nowPlaying.js';
+import { buildNowPlayingContent, resolvePosterUrl } from './src/pathe/widget.js';
+import { startNewFilmPolling, stopNewFilmPolling } from './src/pathe/newFilmPolling.js';
 
 const gladys = new GladysIntegration();
 
@@ -91,12 +96,32 @@ gladys.onAction('search_cinemas', async (fields) => {
   return results.map(formatCinemaLine).join('\n');
 });
 
-gladys.onMoviesGetUpcoming(async () => {
+gladys.onWidgetGet('now_playing', async () => {
   validateConfig(config);
 
-  logger.info(`onMoviesGetUpcoming <- cinema ${config.cinema_id}`);
+  logger.info(`onWidgetGet(now_playing) <- cinema ${config.cinema_id}`);
 
-  return fetchNowPlaying(config.cinema_id);
+  const movies = await fetchNowPlaying(config.cinema_id);
+
+  return buildNowPlayingContent(movies);
+});
+
+gladys.onWidgetGetImage(async (imageKey) => {
+  const posterUrl = resolvePosterUrl(imageKey);
+
+  if (!posterUrl) {
+    throw new Error(`onWidgetGetImage: unknown image key "${imageKey}"`);
+  }
+
+  const response = await fetch(posterUrl);
+
+  if (!response.ok) {
+    throw new Error(`onWidgetGetImage: pathe.fr HTTP ${response.status} on ${posterUrl}`);
+  }
+
+  const bytes = Buffer.from(await response.arrayBuffer());
+
+  return bytes.toString('base64');
 });
 
 gladys.onConfigUpdated(async (newConfig) => {
@@ -108,6 +133,7 @@ gladys.onConfigUpdated(async (newConfig) => {
     validateConfig(config);
 
     await gladys.setConnectionStatus(true);
+    startNewFilmPolling(gladys, () => fetchNowPlaying(config.cinema_id));
   } catch (error) {
     await gladys.setConnectionStatus(false, {
       en: error.message,
@@ -123,6 +149,7 @@ gladys.on('connected', async () => {
     validateConfig(config);
 
     await gladys.setConnectionStatus(true);
+    startNewFilmPolling(gladys, () => fetchNowPlaying(config.cinema_id));
   } catch (error) {
     await gladys.setConnectionStatus(false, {
       en: error.message,
@@ -130,6 +157,8 @@ gladys.on('connected', async () => {
     });
   }
 });
+
+gladys.handleShutdown(async () => stopNewFilmPolling());
 
 logger.info('Starting the Pathé integration...');
 

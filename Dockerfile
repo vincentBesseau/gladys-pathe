@@ -22,6 +22,7 @@ COPY src ./src
 COPY gladys-assistant-integration.json ./
 
 ENV NODE_ENV=production
+RUN mkdir -p /data && chown node:node /data
 VOLUME ["/data"]
 
 USER node
