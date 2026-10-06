@@ -9,13 +9,9 @@
   "version": "1.0.0",
   "docker_image": "ghcr.io/vincentbesseau/gladys-pathe:1.0.0",
   "gladys_version": ">=5.1.1",
-  "categories": [
-    "multimedia"
-  ],
+  "categories": ["multimedia"],
   "cover_image": "https://raw.githubusercontent.com/vincentBesseau/gladys-pathe/main/cover.png",
-  "transports": [
-    "cloud"
-  ],
+  "transports": ["cloud"],
   "location": true,
   "config_schema": [
     {

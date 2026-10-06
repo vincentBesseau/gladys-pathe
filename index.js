@@ -20,6 +20,7 @@ import { normalizeConfig, validateConfig } from './src/config.js';
 import { searchCinemas, nearestCinemas } from './src/pathe/cinemas.js';
 import { fetchNowPlaying } from './src/pathe/nowPlaying.js';
 import { buildNowPlayingContent, resolvePosterUrl } from './src/pathe/widget.js';
+import { fitImageForWidget } from './src/image.js';
 import { startNewFilmPolling, stopNewFilmPolling } from './src/pathe/newFilmPolling.js';
 
 const gladys = new GladysIntegration();
@@ -121,7 +122,10 @@ gladys.onWidgetGetImage(async (imageKey) => {
 
   const bytes = Buffer.from(await response.arrayBuffer());
 
-  return bytes.toString('base64');
+  // Gladys caps widget images (300 KB): downscale what the site serves above it.
+  const fitted = await fitImageForWidget(bytes);
+
+  return fitted.toString('base64');
 });
 
 gladys.onConfigUpdated(async (newConfig) => {
