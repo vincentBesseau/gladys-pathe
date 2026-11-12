@@ -39,6 +39,12 @@ there is no trailer link here: pathe.fr's own video CDN (`media.pathe.fr`)
 refuses to play anything requested outside of a pathe.fr page itself, so the
 link would never work for you anyway.
 
+To follow **several cinemas** (up to 5), add them in the integration
+configuration (the **More cinemas** section), each with its name and ID. Then
+add one **now_playing** widget per cinema: each widget's **Cinema** setting
+chooses which one to show (_Cinema 1_ is the main one, _2–5_ the extra cinemas).
+The configured name is used as the widget title.
+
 ## Scene trigger
 
 The integration also declares a **new_film** scene trigger: create a scene

@@ -44,6 +44,13 @@ bande-annonce ici : le CDN vidéo de pathe.fr (`media.pathe.fr`) refuse toute
 lecture directe sans provenir d'une page pathe.fr elle-même, donc le lien ne
 fonctionnerait jamais pour vous.
 
+Pour suivre **plusieurs cinémas** (jusqu'à 5), renseignez-les dans la
+configuration de l'intégration (section **Cinémas supplémentaires**), chacun
+avec son nom et son identifiant. Ajoutez ensuite un widget **À l'affiche** par
+cinéma : le réglage **Cinéma** de chaque widget choisit lequel afficher
+(_Cinéma 1_ est le principal, _2 à 5_ les cinémas supplémentaires). Le nom
+configuré s'affiche comme titre du widget.
+
 ## Déclencheur de scène
 
 L'intégration déclare aussi un déclencheur de scène **Nouveau film ajouté** :

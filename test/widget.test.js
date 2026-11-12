@@ -13,6 +13,27 @@ test('buildNowPlayingContent returns an empty component list for an empty progra
   assert.deepEqual(content, { version: 1, ttl_seconds: 900, components: [] });
 });
 
+test('buildNowPlayingContent adds a heading with the cinema name when a title is given', () => {
+  const movie = {
+    id: '1',
+    title: 'A',
+    releaseDate: '2026-01-01',
+    sourceUrl: 'https://example.test/1',
+  };
+
+  const withFilms = buildNowPlayingContent([movie], { title: 'My cinema' });
+  assert.deepEqual(withFilms.components[0], {
+    type: 'text',
+    variant: 'heading',
+    text: 'My cinema',
+  });
+  assert.equal(withFilms.components[1].type, 'card-list');
+
+  // The heading is kept even on an empty program, so the card still names its cinema.
+  const empty = buildNowPlayingContent([], { title: 'My cinema' });
+  assert.deepEqual(empty.components, [{ type: 'text', variant: 'heading', text: 'My cinema' }]);
+});
+
 test('buildNowPlayingContent renders a card-list item with showtimes and a book link, but no trailer link (Pathé never sets trailerUrl)', () => {
   const movie = {
     id: 'harry-potter-et-les-reliques-de-la-mort-partie-1',
