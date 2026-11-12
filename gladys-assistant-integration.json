@@ -9,13 +9,9 @@
   "version": "1.1.1",
   "docker_image": "ghcr.io/vincentbesseau/gladys-pathe:1.1.1",
   "gladys_version": ">=5.1.1",
-  "categories": [
-    "multimedia"
-  ],
+  "categories": ["multimedia"],
   "cover_image": "https://raw.githubusercontent.com/vincentBesseau/gladys-pathe/main/cover.png",
-  "transports": [
-    "cloud"
-  ],
+  "transports": ["cloud"],
   "location": true,
   "config_schema": [
     {
@@ -31,6 +27,18 @@
       }
     },
     {
+      "key": "cinema_name",
+      "type": "string",
+      "label": {
+        "en": "Cinema name (optional)",
+        "fr": "Nom du cinéma (optionnel)"
+      },
+      "description": {
+        "en": "Shown as the widget's title. Leave empty to show no title.",
+        "fr": "Affiché comme titre du widget. Laissez vide pour ne pas afficher de titre."
+      }
+    },
+    {
       "key": "cinema_id",
       "type": "string",
       "label": {
@@ -42,6 +50,58 @@
         "fr": "L'identifiant affiché par l'action \"Trouver mon cinéma\", par ex. cinema-pathe-rennes."
       },
       "required": true
+    },
+    {
+      "key": "extra_cinemas",
+      "type": "section",
+      "label": {
+        "en": "More cinemas (optional)",
+        "fr": "Cinémas supplémentaires (optionnel)"
+      },
+      "description": {
+        "en": "Add up to four more cinemas. Each \"Now playing\" widget then picks which one to show (Cinema 1 is the one above).",
+        "fr": "Ajoutez jusqu'à quatre cinémas de plus. Chaque widget « À l'affiche » choisit ensuite lequel afficher (le Cinéma 1 est celui ci-dessus)."
+      }
+    },
+    {
+      "key": "cinema_name_2",
+      "type": "string",
+      "label": { "en": "Cinema 2 — name", "fr": "Cinéma 2 — nom" }
+    },
+    {
+      "key": "cinema_id_2",
+      "type": "string",
+      "label": { "en": "Cinema 2 — ID", "fr": "Cinéma 2 — identifiant" }
+    },
+    {
+      "key": "cinema_name_3",
+      "type": "string",
+      "label": { "en": "Cinema 3 — name", "fr": "Cinéma 3 — nom" }
+    },
+    {
+      "key": "cinema_id_3",
+      "type": "string",
+      "label": { "en": "Cinema 3 — ID", "fr": "Cinéma 3 — identifiant" }
+    },
+    {
+      "key": "cinema_name_4",
+      "type": "string",
+      "label": { "en": "Cinema 4 — name", "fr": "Cinéma 4 — nom" }
+    },
+    {
+      "key": "cinema_id_4",
+      "type": "string",
+      "label": { "en": "Cinema 4 — ID", "fr": "Cinéma 4 — identifiant" }
+    },
+    {
+      "key": "cinema_name_5",
+      "type": "string",
+      "label": { "en": "Cinema 5 — name", "fr": "Cinéma 5 — nom" }
+    },
+    {
+      "key": "cinema_id_5",
+      "type": "string",
+      "label": { "en": "Cinema 5 — ID", "fr": "Cinéma 5 — identifiant" }
     }
   ],
   "actions": [
@@ -81,7 +141,29 @@
         "fr": "Les films à l'affiche aujourd'hui dans votre cinéma Pathé configuré, avec les horaires."
       },
       "icon": "film",
-      "action_timeout_seconds": 15
+      "action_timeout_seconds": 15,
+      "settings": [
+        {
+          "key": "cinema",
+          "type": "select",
+          "label": {
+            "en": "Cinema",
+            "fr": "Cinéma"
+          },
+          "description": {
+            "en": "Which of the cinemas configured in the integration this widget shows. \"Cinema 1\" is the main one; 2–5 are the extra cinemas, in order.",
+            "fr": "Lequel des cinémas configurés dans l'intégration ce widget affiche. « Cinéma 1 » est le principal ; 2 à 5 sont les cinémas supplémentaires, dans l'ordre."
+          },
+          "default": "1",
+          "options": [
+            { "value": "1", "label": { "en": "Cinema 1", "fr": "Cinéma 1" } },
+            { "value": "2", "label": { "en": "Cinema 2", "fr": "Cinéma 2" } },
+            { "value": "3", "label": { "en": "Cinema 3", "fr": "Cinéma 3" } },
+            { "value": "4", "label": { "en": "Cinema 4", "fr": "Cinéma 4" } },
+            { "value": "5", "label": { "en": "Cinema 5", "fr": "Cinéma 5" } }
+          ]
+        }
+      ]
     }
   ],
   "scene_triggers": [

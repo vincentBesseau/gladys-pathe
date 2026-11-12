@@ -32,9 +32,13 @@ function joinShowtimes(showtimes) {
  * @param {Array<object>} movies - The films currently playing, from fetchNowPlaying().
  * @returns {object} A widget content tree (dashboard-widgets.md, section 4).
  */
-function buildNowPlayingContent(movies) {
+function buildNowPlayingContent(movies, { title } = {}) {
+  // A heading naming the cinema goes in the header slot (canonical order), kept
+  // even on an empty program so the card still says which cinema it is.
+  const heading = title ? [{ type: 'text', variant: 'heading', text: title }] : [];
+
   if (movies.length === 0) {
-    return { version: 1, ttl_seconds: 900, components: [] };
+    return { version: 1, ttl_seconds: 900, components: heading };
   }
 
   // The grid caps at 12 cards (dashboard-widgets.md: card-list "1-12 in grid"),
@@ -72,7 +76,7 @@ function buildNowPlayingContent(movies) {
     return item;
   });
 
-  const components = [{ type: 'card-list', display: 'grid', items }];
+  const components = [...heading, { type: 'card-list', display: 'grid', items }];
 
   const hidden = movies.slice(MAX_GRID_ITEMS);
 
