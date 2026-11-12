@@ -125,6 +125,8 @@ which covers every French cinema through AlloCiné's own site.
       integration needs (dashboard widgets and scene triggers declared by
       external integrations, [#3109](https://github.com/GladysAssistant/Gladys/pull/3109)
       / [#3110](https://github.com/GladysAssistant/Gladys/pull/3110), both merged).
+- [x] `gladys_version` raised to `>=5.3.0` with `countries: ["FR"]`: the first
+      Gladys release whose validator accepts the catalog countries.
 - [x] SDK dependency on the official, published `@gladysassistant/integration-sdk`
       (no fork).
 - [x] Add a `cover.png` (referenced by `cover_image` in the manifest) — 800x534, under 150 KB.
