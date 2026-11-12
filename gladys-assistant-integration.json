@@ -6,12 +6,16 @@
     "en": "Movies currently playing at your Pathé cinema.",
     "fr": "Films actuellement à l'affiche dans votre cinéma Pathé."
   },
-  "version": "1.1.1",
-  "docker_image": "ghcr.io/vincentbesseau/gladys-pathe:1.1.1",
+  "version": "1.2.0",
+  "docker_image": "ghcr.io/vincentbesseau/gladys-pathe:1.2.0",
   "gladys_version": ">=5.1.1",
-  "categories": ["multimedia"],
+  "categories": [
+    "multimedia"
+  ],
   "cover_image": "https://raw.githubusercontent.com/vincentBesseau/gladys-pathe/main/cover.png",
-  "transports": ["cloud"],
+  "transports": [
+    "cloud"
+  ],
   "location": true,
   "config_schema": [
     {
@@ -66,42 +70,66 @@
     {
       "key": "cinema_name_2",
       "type": "string",
-      "label": { "en": "Cinema 2 — name", "fr": "Cinéma 2 — nom" }
+      "label": {
+        "en": "Cinema 2 — name",
+        "fr": "Cinéma 2 — nom"
+      }
     },
     {
       "key": "cinema_id_2",
       "type": "string",
-      "label": { "en": "Cinema 2 — ID", "fr": "Cinéma 2 — identifiant" }
+      "label": {
+        "en": "Cinema 2 — ID",
+        "fr": "Cinéma 2 — identifiant"
+      }
     },
     {
       "key": "cinema_name_3",
       "type": "string",
-      "label": { "en": "Cinema 3 — name", "fr": "Cinéma 3 — nom" }
+      "label": {
+        "en": "Cinema 3 — name",
+        "fr": "Cinéma 3 — nom"
+      }
     },
     {
       "key": "cinema_id_3",
       "type": "string",
-      "label": { "en": "Cinema 3 — ID", "fr": "Cinéma 3 — identifiant" }
+      "label": {
+        "en": "Cinema 3 — ID",
+        "fr": "Cinéma 3 — identifiant"
+      }
     },
     {
       "key": "cinema_name_4",
       "type": "string",
-      "label": { "en": "Cinema 4 — name", "fr": "Cinéma 4 — nom" }
+      "label": {
+        "en": "Cinema 4 — name",
+        "fr": "Cinéma 4 — nom"
+      }
     },
     {
       "key": "cinema_id_4",
       "type": "string",
-      "label": { "en": "Cinema 4 — ID", "fr": "Cinéma 4 — identifiant" }
+      "label": {
+        "en": "Cinema 4 — ID",
+        "fr": "Cinéma 4 — identifiant"
+      }
     },
     {
       "key": "cinema_name_5",
       "type": "string",
-      "label": { "en": "Cinema 5 — name", "fr": "Cinéma 5 — nom" }
+      "label": {
+        "en": "Cinema 5 — name",
+        "fr": "Cinéma 5 — nom"
+      }
     },
     {
       "key": "cinema_id_5",
       "type": "string",
-      "label": { "en": "Cinema 5 — ID", "fr": "Cinéma 5 — identifiant" }
+      "label": {
+        "en": "Cinema 5 — ID",
+        "fr": "Cinéma 5 — identifiant"
+      }
     }
   ],
   "actions": [
@@ -156,11 +184,41 @@
           },
           "default": "1",
           "options": [
-            { "value": "1", "label": { "en": "Cinema 1", "fr": "Cinéma 1" } },
-            { "value": "2", "label": { "en": "Cinema 2", "fr": "Cinéma 2" } },
-            { "value": "3", "label": { "en": "Cinema 3", "fr": "Cinéma 3" } },
-            { "value": "4", "label": { "en": "Cinema 4", "fr": "Cinéma 4" } },
-            { "value": "5", "label": { "en": "Cinema 5", "fr": "Cinéma 5" } }
+            {
+              "value": "1",
+              "label": {
+                "en": "Cinema 1",
+                "fr": "Cinéma 1"
+              }
+            },
+            {
+              "value": "2",
+              "label": {
+                "en": "Cinema 2",
+                "fr": "Cinéma 2"
+              }
+            },
+            {
+              "value": "3",
+              "label": {
+                "en": "Cinema 3",
+                "fr": "Cinéma 3"
+              }
+            },
+            {
+              "value": "4",
+              "label": {
+                "en": "Cinema 4",
+                "fr": "Cinéma 4"
+              }
+            },
+            {
+              "value": "5",
+              "label": {
+                "en": "Cinema 5",
+                "fr": "Cinéma 5"
+              }
+            }
           ]
         }
       ]
