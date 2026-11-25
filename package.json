@@ -1,6 +1,6 @@
 {
   "name": "gladys-pathe",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": true,
   "description": "Pathé cinema integration for Gladys Assistant: movies currently playing at your Pathé cinema.",
   "type": "module",
