@@ -4,7 +4,7 @@
 [![CI](https://github.com/vincentBesseau/gladys-pathe/actions/workflows/ci.yml/badge.svg)](https://github.com/vincentBesseau/gladys-pathe/actions/workflows/ci.yml)
 [![Docker pulls](https://ghcr-badge.elias.eu.org/shield/vincentBesseau/gladys-pathe/gladys-pathe)](https://github.com/vincentBesseau/gladys-pathe/pkgs/container/gladys-pathe)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](https://www.apache.org/licenses/LICENSE-2.0)
-[![Gladys](https://img.shields.io/badge/gladys-%3E%3D5.1.1-6f42c1)](https://gladysassistant.com)
+[![Gladys](https://img.shields.io/badge/gladys-%3E%3D5.3.0-6f42c1)](https://gladysassistant.com)
 
 Pathé cinema integration for [Gladys Assistant](https://gladysassistant.com):
 movies currently playing at your Pathé cinema, as a dashboard widget, with a
@@ -125,6 +125,8 @@ which covers every French cinema through AlloCiné's own site.
       integration needs (dashboard widgets and scene triggers declared by
       external integrations, [#3109](https://github.com/GladysAssistant/Gladys/pull/3109)
       / [#3110](https://github.com/GladysAssistant/Gladys/pull/3110), both merged).
+- [x] `gladys_version` raised to `>=5.3.0` with `countries: ["FR"]`: the first
+      Gladys release whose validator accepts the catalog countries.
 - [x] SDK dependency on the official, published `@gladysassistant/integration-sdk`
       (no fork).
 - [x] Add a `cover.png` (referenced by `cover_image` in the manifest) — 800x534, under 150 KB.
